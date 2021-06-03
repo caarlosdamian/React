@@ -61,15 +61,13 @@ function Home(props) {
     Axios.get("http://localhost:3001/intents").then((response) => {
       setintentsList(response.data);
     });
-  }, []);
-
-  const [customerList, setCustomerList] = useState([]); //store all that information of the database in a list
-  //make an axios request to get information from database
-  useEffect(() => {
     Axios.get("http://localhost:3001/customers").then((response) => {
       setCustomerList(response.data);
     });
   }, []);
+
+  const [customerList, setCustomerList] = useState([]); //store all that information of the database in a list
+  //make an axios request to get information from database
 
   const updateCustomerContacted = (ID) => {
     Axios.put("http://localhost:3001/update", {
